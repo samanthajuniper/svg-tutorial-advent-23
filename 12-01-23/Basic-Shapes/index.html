@@ -1,0 +1,86 @@
+<!-- 
+What is an SVG?
+ -  SVG = scalable vector graphic 
+ - similar syntax as HTML
+ - can access parts of svg with JS
+ - add styling & animations through CSS
+-->
+
+<!-- 
+Sizing
+- <svg>: contains the image elements, defines the frame, & sets inner and outer size
+- width/height: how much space image takes up in browser -> how rest of HTML elements think of the image and how big it appears to browser
+- viewbox: defines coordinate system for image elements -> how the image elements think og the image when they position themselves
+    - first 2 values: define top-left coordinate
+    - last 2 values: define size from the perspective of the image elements
+- note: xmlns prop can be omitted if image is inlined in html
+ -->
+
+ <!-- viewbox > w/d, so image is scaled down -->
+<svg 
+  width="100" 
+  height="100" 
+  viewBox="0 0 200 200"
+>
+  <circle cx="100" cy="100" r="50" />
+</svg>
+
+<!-- viewbox = w/h -->
+<svg 
+  width="200" 
+  height="200" 
+  viewBox="0 0 200 200"
+>
+  <circle cx="100" cy="100" r="50" />
+</svg>
+
+<!-- viewbox < w/h, so image is scaled up  -->
+<svg 
+  width="200" 
+  height="200" 
+  viewBox="0 0 100 100"
+>
+  <circle cx="100" cy="100" r="50" />
+</svg>
+
+ <!-- Set coordinate of top-left corner to half the image size in negative -->
+
+ <svg 
+  width="200"
+  height="200"
+  viewBox="-100 -100 200 200"
+>
+  <circle cx="0" cy="0" r="50" />
+</svg>
+
+<!--
+Christmas ornament image 
+- use simple shapes: circle  & rectangle
+- origin og the coordinate system is in the center of the image
+- 1st: draw 1st circle element
+  - cx: x-axis coordinate of center of circle
+  - cy: y-axis coordinate of center of circle
+  - r: radius of circle, <=0
+- 2nd: presentational attributes that style our shapes
+    - fill: color
+- 3rd: draw rectangle element
+    - x coordinate
+    - y coordinate
+- 4th: draw 2nd circle
+   - stroke: outline color
+   - stroke-width: outline width    
+-->
+
+<svg width="200" height="200" viewBox="-100 -100 200 200">
+  <circle cx="0" cy="20" r="70" fill="#D1495B" />
+  <rect x="-17.5" y="-65" width="35" height="20" fill="#F79257" />
+  <circle
+    cx="0"
+    cy="-75"
+    r="12"
+    fill="none"
+    stroke="#F79257"
+    stroke-width="2"
+  />
+</svg>
+
